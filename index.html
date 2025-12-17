@@ -17,7 +17,9 @@
     
     <link rel="manifest" href="manifest.json" />
     
-    <!-- Tailwind Play CDN -->
+    <!-- Tailwind Play CDN - NOTE: This CDN is for development and no-build environments. 
+         The console warning about production use is expected in this setup.
+         For a production build, Tailwind CSS should be installed as a PostCSS plugin. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     
@@ -92,8 +94,9 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Service Worker registration removed to fix cross-origin script errors in no-build environments. -->
+    <!--
     <script>
-      // Service Worker registration with relative path fix
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('./sw.js')
@@ -102,5 +105,6 @@
         });
       }
     </script>
+    -->
   </body>
 </html>
