@@ -1,0 +1,18 @@
+
+{
+  "short_name": "Trial",
+  "name": "Linguistic Judgment: The World's End",
+  "icons": [
+    {
+      "src": "https://api.dicebear.com/7.x/shapes/svg?seed=eye&backgroundColor=050505",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#050505",
+  "background_color": "#050505",
+  "orientation": "portrait"
+}
