@@ -1,0 +1,8 @@
+{
+  "name": "Linguistic Judgment: The Multimodal Trial",
+  "description": "A high-stakes language learning game where you must defend humanity using perfect grammar in your target language or face global extinction.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
