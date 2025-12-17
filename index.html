@@ -1,18 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>Linguistic Judgment: The World's End</title>
-    <!-- Fix for favicon 404 -->
+    
+    <!-- Robust Favicon Data-URI to prevent 404 -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👁️</text></svg>">
+    
     <meta name="theme-color" content="#050505" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <!-- Fixed Deprecated Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Arbiter" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
     <link rel="manifest" href="manifest.json" />
     
-    <!-- Tailwind Play CDN - Note: Warning in console is expected for development-mode CDN usage in no-build environments -->
+    <!-- Tailwind Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     
@@ -64,6 +69,14 @@
       .glitch-hover:hover {
         animation: glitch 0.3s infinite;
       }
+
+      /* Fix for iOS safe areas */
+      .safe-area-padding {
+        padding-top: var(--sat);
+        padding-bottom: var(--sab);
+        padding-left: var(--sal);
+        padding-right: var(--sar);
+      }
     </style>
     <script type="importmap">
     {
@@ -80,9 +93,12 @@
   <body>
     <div id="root"></div>
     <script>
+      // Service Worker registration with relative path fix
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('sw.js').catch(err => console.log('SW registration failed:', err));
+          navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('SW registered:', reg.scope))
+            .catch(err => console.error('SW registration failed:', err));
         });
       }
     </script>
